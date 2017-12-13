@@ -1,0 +1,19 @@
+.well-image{
+    width: 100%;
+    height: 162px;
+}
+
+.top-buffer{
+    margin-top: 30px;
+}
+
+.answer{
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #bbb;
+}
+
+/* To make this boxes "clickables" or "selected" */
+.answer:hover{ 
+    cursor: pointer;
+}
