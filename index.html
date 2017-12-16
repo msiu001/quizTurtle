@@ -126,27 +126,35 @@
                         </div>
                     </div>
                 </div>
-            </div><!-- progress area-->
-        <div class="row">
-            <h3>Question:</h3>
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h4>{{quiz.acticveQuestion + 1 + ". " + quiz.DataService.quizQuestions[quiz.activeQuestion].text}}</h4>
-                        <div class="row">
-                            <div class="col-sm-6" ng-repeat="answer in quiz.DataService.quizQuestions[quiz.activeQuestion].possibilities">
-                                <h4 class="answer">
-                                    {{answer.answer}}
-                                </h4>
+            </div>
+        <!-- progress area-->
+     <div class="row">
+        <h3>Question:</h3>
+        <div class="well well-sm">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4>{{quiz.activeQuestion + 1 + ". " + quiz.DataService.quizQuestions[quiz.activeQuestion].text}}</h4>
+                    <div class="row"
+                        ng-if="quiz.DataService.quizQuestions[quiz.activeQuestion].type === 'text'">
+                        <div class="col-sm-6" ng-repeat="answer in quiz.DataService.quizQuestions[quiz.activeQuestion].possibilities">
+                            <h4 class="answer">
+                                {{answer.answer}}
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="row" 
+                        ng-if="quiz.DataService.quizQuestions[quiz.activeQuestion].type ==='image'">
+                        <div class="col-sm-6" ng-repeat="answer in quiz.DataService.quizQuestions[quiz.activeQuestion].possibilities">
+                            <div class="image-answer">
+                                <img ng-src="{{answer.answer}}">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div>
-            <button class="btn btn-success btn-lg center-block"  ng-click="quiz.questionAnswered()">Next</button>
-        </div>
+        <button class="btn btn-success btn-lg center-block" ng-click="quiz.questionAnswered()">Next</button>
+    </div>
     </div>
  
     </div><!--  class="container" -->

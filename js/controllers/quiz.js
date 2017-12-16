@@ -26,11 +26,39 @@
         vm.quizMetrics = quizMetrics;  
         vm.DataService = DataService;
         vm.questionAnswered = questionAnswered;
+        vm.setActiveQuestion = setActiveQuestion;
         vm.activeQuestion = 0;  
 
+        var numQuestionAnswered = 0;
+
+        function setActiveQuestion(){
+            var breakOut = false;
+            var quizLength = DataService.quizQuestions.length -1;
+
+            while(!breakOut){
+                 vm.activeQuestion = vm.activeQuestion < quizLength?++vm.activeQuestion:0;
+
+                 if(DataService.quizQuestions[vm.activeQuestion].selected === null){
+                     breakOut = true;
+                 }
+            }
+        }
+
         function questionAnswered(){
+            var quizLength = DataService.quizQuestions.length;
+
+            if(DataService.quizQuestions[vm.activeQuestion].selected !== null){
+                numQuestionAnswered++;
+
+                if(numQuestionAnswered >= quizLength){
+                    //finalise quizCtrl
+                }
+            }
+            vm.setActiveQuestion();
             
-        }   
+        }  
+
+     
     }
 
 
