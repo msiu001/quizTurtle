@@ -6,13 +6,17 @@
          function DataService(){
              var dataObj = {
                  turtlesData: turtlesData,
-                 quizQuestions: quizQuestions
+                 quizQuestions: quizQuestions,
+                 correctAnswers: correctAnswers
              };
 
              return dataObj;
          }
 
-         var quizQuestions  = [
+
+         var correctAnswers = [1,2,3,0,2,0,3,2,0,3];
+
+        var quizQuestions  = [
         {
             type: "text",
             text: "How much can a loggerhead weigh?",
