@@ -28,11 +28,14 @@
         vm.questionAnswered = questionAnswered;
         vm.setActiveQuestion = setActiveQuestion;
         vm.selectAnswer = selectAnswer;
+        vm.finaliseAnswers =finaliseAnswers;
         vm.activeQuestion = 0;  
         vm.error = false;
         vm.finalise = false;
-
+        
         var numQuestionAnswered = 0;
+
+
 
         function setActiveQuestion(index) {
           if (index === undefined) {
@@ -83,6 +86,17 @@
             DataService.quizQuestions[vm.activeQuestion].selected = index;
             
         }  
+
+        function finaliseAnswers(){
+
+            vm.finalise = false;
+            vm.numQuestionAnswered = 0;
+            vm.activeQuestion = 0;
+            quizMetrics.markQuiz();  
+            quizMetrics.changeState("quiz", false); 
+            quizMetrics.changeState("results", true)    
+        }
+    
 
      
     }

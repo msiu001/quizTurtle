@@ -34,7 +34,7 @@
 
         //function to activate quiz
         function activateQuiz(){
-           quizMetrics.changeState(true);
+           quizMetrics.changeState("quiz", true);
         }
 
         //function to active any turtle
