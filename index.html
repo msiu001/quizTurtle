@@ -130,6 +130,11 @@
             </div>
         <!-- progress area-->
      <div class="row">
+        <div class="alert alert-danger"
+                ng-show="quiz.error">
+                Error! You have not answered all of the questions!
+                <button class="close" ng-click="quiz.error = false">&times</button>
+        </div>
         <h3>Question:</h3>
         <div class="well well-sm">
             <div class="row">
@@ -168,7 +173,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
- 
+   
     <!-- Our application scripts -->
     <script src="js/app.js"></script>
     <script src="js/controllers/list.js"></script>

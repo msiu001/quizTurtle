@@ -29,6 +29,8 @@
         vm.setActiveQuestion = setActiveQuestion;
         vm.selectAnswer = selectAnswer;
         vm.activeQuestion = 0;  
+        vm.error = false;
+        vm.finalise = false;
 
         var numQuestionAnswered = 0;
 
@@ -39,6 +41,10 @@
 
             while (!breakOut) {
               vm.activeQuestion = vm.activeQuestion < quizLength ? ++vm.activeQuestion : 0;
+
+              if(vm.activeQuestion === 0){
+                  vm.error = true;
+              }
 
               if (DataService.quizQuestions[vm.activeQuestion].selected === null) {
                 breakOut = true;
@@ -58,6 +64,15 @@
 
                 if(numQuestionAnswered >= quizLength){
                     //finalise quizCtrl
+                    for(var i = 0; i< quizLength; i++){
+                        if(DataService.quizQuestions[i].selected === null){
+                            setActiveQuestion(i);
+                            return;
+                        }
+                    }
+                    vm.error = false;   //means that all questions were answered
+                    vm.finalise = true;
+                    return;
                 }
             }
             vm.setActiveQuestion();
