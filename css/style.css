@@ -31,3 +31,7 @@
     width: 100%;
     height: auto;
 }
+
+.image-selected{
+    border: 5px solid deepskyblue;
+}
