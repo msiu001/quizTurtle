@@ -9,7 +9,7 @@
         function QuizMetrics(DataService){
             var quizObj = {
                 quizActive: false,
-                resultActive: false,
+                resultsActive: false,
                 changeState: changeState,
                 correctAnswers: [],
                 markQuiz: markQuiz,
@@ -22,27 +22,31 @@
                     quizObj.quizActive = state;
                 }
                 else if(metric === "results"){
-                    quizObj.resultActive = state;
+                    quizObj.resultsActive = state;
                 }
                 else{
                     return false;
                 }
             }
-        }
 
-        
-        function markQuiz(){
-            quizObj.correctAnswers = DataService.correctAnswers;
-            for(var i = 0; i < DataService.quizQuestions.length; i++){
-                if(DataService.quizQuestions[i].selected === DataService.correctAnswers[i]){
-                    DataService.quizQuestions[i].correct = true;
-                    quizObj.numberOfCorrectAnswer++;
-                }
-                else{
-                     DataService.quizQuestions[i].correct = false;
+            function markQuiz() {
+                quizObj.correctAnswers = DataService.correctAnswers;
+                for (var i = 0; i < DataService.quizQuestions.length; i++) {
+                    if (DataService.quizQuestions[i].selected === DataService.correctAnswers[i]) {
+                        DataService.quizQuestions[i].correct = true;
+                        quizObj.numberOfCorrectAnswer++;
+                    } 
+                    else {
+                        DataService.quizQuestions[i].correct = false;
+                    }
                 }
             }
-        }
+    
+    
+     }
+
+        
+      
 
 
         
