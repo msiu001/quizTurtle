@@ -35,3 +35,11 @@
 .image-selected{
     border: 5px solid deepskyblue;
 }
+
+.image-answer.bg-success{
+    border: 5px solid #5ea640;
+}
+
+.image-answer.bg-danger{
+    border: 5px solid #b74848;
+}
