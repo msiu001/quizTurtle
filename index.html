@@ -141,7 +141,8 @@
                 <div class="col-xs-12">
 
                     <!--this button is to close the current quiz-->
-                    <button class="btn btn-danger pull-right" ng-click="quiz.closeQuiz()">
+                    <button class="btn btn-danger pull-right"data-toggle="modal"
+                    data-target="#quit_quiz">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
 
@@ -170,7 +171,30 @@
             </div>
         </div>
 
-        
+        <div class="modal" id="quit_quiz">
+                <div class="modal-dialog">
+                    <div class="modal-content">                       
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-8 col-xs-offset-2">
+                                    <img ng-src="{{list.activeTurtle.image_url}}" class="img-rounded img-responsive">
+                                </div>
+                            </div>
+                            <div class="row top-buffer">
+                               <h2 align="center">Are you sure you want to quit the quiz?</h2>
+                               <h3 align="center">You will lose all your progress</h3>
+                                <div class="col-xs-12 top-buffer">
+                                      <div align="center">
+                                            <button class="btn btn-warning" ng-click="quiz.closeQuiz()" data-dismiss="modal">Confirm</button>
+                                            <button class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                      </div>
+                                      
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <button class="btn btn-success btn-lg center-block" ng-click="quiz.questionAnswered()" ng-hide="quiz.finalise">Next</button>
         <div class="well well-sm" ng-show="quiz.finalise">
             <div class="row center-block">
@@ -220,7 +244,7 @@
         <div class="row">
             <div class="col-xs-12 top-buffer">
                 <!-- the score is displayed using simple angular expressions -->
-                <h2>You Scored:  {{results.quizMetrics.numberOfCorrectAnswer}} / {{results.DataService.quizQuestions.length}}</h2>
+                <h2>You Scored:  {{results.quizMetrics.numberOfCorrectAnswers}} / {{results.DataService.quizQuestions.length}}</h2>
                 <!-- the percentage is calculated using a method which is then filtered using the number filter -->
                 <!-- which ensures only 2 decimal places will be shown -->
                 <h2><strong>{{results.calculatePercentage() | number:2}}%</strong></h2>

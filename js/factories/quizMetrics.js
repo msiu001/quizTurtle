@@ -13,7 +13,7 @@
                 changeState: changeState,
                 correctAnswers: [],
                 markQuiz: markQuiz,
-                numberOfCorrectAnswer: 0
+                numberOfCorrectAnswers: 0
             };
             return quizObj;
 
@@ -34,7 +34,7 @@
                 for (var i = 0; i < DataService.quizQuestions.length; i++) {
                     if (DataService.quizQuestions[i].selected === DataService.correctAnswers[i]) {
                         DataService.quizQuestions[i].correct = true;
-                        quizObj.numberOfCorrectAnswer++;
+                        quizObj.numberOfCorrectAnswers++;
                     } 
                     else {
                         DataService.quizQuestions[i].correct = false;
