@@ -139,6 +139,12 @@
         <div class="well well-sm" ng-hide="quiz.finalise">
             <div class="row">
                 <div class="col-xs-12">
+
+                    <!--this button is to close the current quiz-->
+                    <button class="btn btn-danger pull-right" ng-click="quiz.closeQuiz()">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+
                     <h4>{{quiz.activeQuestion + 1 + ". " + quiz.DataService.quizQuestions[quiz.activeQuestion].text}}</h4>
                     <div class="row"
                         ng-if="quiz.DataService.quizQuestions[quiz.activeQuestion].type === 'text'">
@@ -163,6 +169,8 @@
                 </div>
             </div>
         </div>
+
+        
         <button class="btn btn-success btn-lg center-block" ng-click="quiz.questionAnswered()" ng-hide="quiz.finalise">Next</button>
         <div class="well well-sm" ng-show="quiz.finalise">
             <div class="row center-block">

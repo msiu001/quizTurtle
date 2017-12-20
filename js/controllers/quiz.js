@@ -28,7 +28,8 @@
         vm.questionAnswered = questionAnswered;
         vm.setActiveQuestion = setActiveQuestion;
         vm.selectAnswer = selectAnswer;
-        vm.finaliseAnswers =finaliseAnswers;
+        vm.finaliseAnswers = finaliseAnswers;
+        vm.closeQuiz = closeQuiz;
         vm.activeQuestion = 0;  
         vm.error = false;
         vm.finalise = false;
@@ -95,6 +96,21 @@
             quizMetrics.markQuiz();  
             quizMetrics.changeState("quiz", false); 
             quizMetrics.changeState("results", true);   
+        }
+
+
+        function closeQuiz(){
+            quizMetrics.changeState("quiz", false);
+            quizMetrics.changeState("results", false);
+
+            quizMetrics.numberOfCorrectAnswers = 0;
+
+            for(var i = 0; i < DataService.quizQuestions.length; i++){
+                DataService.quizQuestions[i].selected = null;
+                DataService.quizQuestions[i].correct = null;
+            }
+
+            vm.setActiveQuestion(0);
         }
   
 
