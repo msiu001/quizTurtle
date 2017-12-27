@@ -13,6 +13,7 @@
             vm.getAnswerClass = getAnswerClass;
             vm.setActiveQuestion = setActiveQuestion;
             vm.calculatePercentage = calculatePercentage;
+            vm.checkResults = checkResults;
             vm.reset = reset;
             vm.activeQuestion = 0;
             var scorePercentage = 0;
@@ -47,6 +48,36 @@
 
 
                 //or only scorePercentage = quizMetrics.numberOfCorrectAnswers / DataService.quizQuestions.length *100;
+            }
+
+
+            //check how well the user went in the quiz
+            function checkResults(){
+                
+                if(calculatePercentage() === 100){
+                    return "Excelent!!!, Great Performance.";
+                }
+                else if(calculatePercentage() >= 70){
+                    return "Good Job!";
+                }
+                else if(calculatePercentage() >= 30){
+                    return "Nice Try!, You can do it better.";
+                }
+                else{
+                    return "You need to learn more about turtles."
+                }
+                /*
+                
+                var perfectScore = true;
+                for(var i = 0; i < DataService.quizQuestions.length; i++){
+                    if(DataService.quizQuestions[i].correct === true){
+                        perfectScore = perfectScore &&  DataService.quizQuestions[i].correct;
+                    }
+                    else{
+                        perfectScore = false;
+                    }
+                }
+                return perfectScore;*/
             }
 
 

@@ -198,10 +198,10 @@
         <button class="btn btn-success btn-lg center-block" ng-click="quiz.questionAnswered()" ng-hide="quiz.finalise">Next</button>
         <div class="well well-sm" ng-show="quiz.finalise">
             <div class="row center-block">
-                <div class="col-xs-12">
+                <div align="center">
                     <h3>Are you sure you want to submit your answers?</h3>
-                    <button class="btn btn-success" ng-click="quiz.finaliseAnswers()">Yes</button>
-                    <button class="btn btn-danger" ng-click="quiz.finalise = false">No</button>
+                    <button class="btn btn-success btn-lg" ng-click="quiz.finaliseAnswers()">Yes</button>
+                    <button class="btn btn-danger btn-lg" ng-click="quiz.finalise = false">No</button>
                 </div>
             </div>
         </div>
@@ -243,6 +243,8 @@
             <!-- display the score and percentage to the user -->
         <div class="row">
             <div class="col-xs-12 top-buffer">
+                <h2>{{results.checkResults()}}</h2>
+                <!-- <h2 ng-show="results.checkResults()">Congratulation!!!</h2> -->
                 <!-- the score is displayed using simple angular expressions -->
                 <h2>You Scored:  {{results.quizMetrics.numberOfCorrectAnswers}} / {{results.DataService.quizQuestions.length}}</h2>
                 <!-- the percentage is calculated using a method which is then filtered using the number filter -->
